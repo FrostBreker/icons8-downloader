@@ -1,0 +1,22 @@
+<!-- modalContent.html -->
+<div id="customModal" class="modal-animation">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="icon-container">
+    <img id="iconImage" alt="Icon" />
+    <div id="iconInfo">
+      <p id="iconName"></p>
+    </div>
+  </div>
+  <div class="downloadSection">
+    <a class="download-desactivate" id="dl-tag" href="javascript:void(0)" target="_blank" download
+      onclick="downloaded()">Download</a>
+    <select name="size" id="size-select" oninput="downloadIcon()">
+      <option value="0">--Please choose an option--</option>
+      <option value="512">512</option>
+      <option value="256">256</option>
+      <option value="128">128</option>
+      <option value="64">64</option>
+      <option value="32">32</option>
+    </select>
+  </div>
+</div>

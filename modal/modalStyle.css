@@ -1,0 +1,125 @@
+/* modalStyle.css */
+#customModal {
+  display: none;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  background: white;
+  padding: 20px;
+  border: 1px solid #f3f3f3;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  width: 300px;
+  z-index: 99999;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  color: #bebebe;
+  transition: .2s color ease-in-out;
+}
+
+/* make the close button turn when hovering */
+.close:hover {
+  color: red;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* Additional styles for icon container and button */
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 300px;
+}
+
+#iconImage {
+  width: 50px;
+  height: 50px;
+}
+
+#iconName {
+  margin-left: 10px;
+  font-weight: 600;
+  max-width: 200px;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.downloadSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.download-desactivate,
+.download {
+  background-color: #1fb141;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.download-desactivate {
+  background-color: #ccc;
+}
+
+.download:hover {
+  background-color: #189a2e;
+}
+
+#size-select {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+#size-select option {
+  padding: 5px;
+  cursor: pointer;
+}

@@ -1,0 +1,47 @@
+{
+    "manifest_version": 3,
+    "name": "Icons8 Downloader",
+    "version": "1.1",
+    "icons": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-16.png",
+        "48": "images/icon-16.png",
+        "128": "images/icon-16.png"
+    },
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://icones8.fr/icon/*/*"
+            ],
+            "js": [
+                "js/contentScript.js",
+                "modal/modalScript.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "modal/modalContent.html",
+                "modal/modalScript.js",
+                "modal/modalStyle.css"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "https://developer.chrome.com/*"
+    ],
+    "permissions": [
+        "storage",
+        "activeTab"
+    ]
+}
