@@ -1,6 +1,6 @@
 // contentScript.js
 // Code to open a modal on the specific website when the URL matches the pattern
-
+console.log('Content script loaded');
 // Function to check if the URL matches the required pattern
 function matchesPattern() {
     return /^https:\/\/icones8\.fr\/icon\/\d+\/.+/.test(window.location.href);
@@ -23,28 +23,55 @@ async function fetchModalContent() {
 
 window.onload = function () {
     // Check if the URL matches the pattern before injecting the modal content
-    if (matchesPattern()) {
-        fetchModalContent().then((modalHTML) => {
-            if (modalHTML) {
-                const body = document.querySelector('body');
-                body.insertAdjacentHTML('beforeend', modalHTML);
+    // if (matchesPattern()) {
+    //     console.log('URL matches pattern');
+    //     fetchModalContent().then((modalHTML) => {
+    //         if (modalHTML) {
+    //             const body = document.querySelector('body');
+    //             body.insertAdjacentHTML('beforeend', modalHTML);
 
-                // Get the absolute URL of the JS file in your extension
-                const jsUrl = chrome.runtime.getURL('modal/modalScript.js');
+    //             // Get the absolute URL of the JS file in your extension
+    //             const jsUrl = chrome.runtime.getURL('modal/modalScript.js');
 
-                // Create a script element
-                const script = document.createElement('script');
-                script.src = jsUrl;
+    //             // Create a script element
+    //             const script = document.createElement('script');
+    //             script.src = jsUrl;
 
-                // Add an event listener to check when the script has loaded
-                script.onload = () => {
-                    console.log('Script has been loaded!');
-                    // You can perform further actions here if needed
-                };
+    //             // Add an event listener to check when the script has loaded
+    //             script.onload = () => {
+    //                 console.log('Script has been loaded!');
+    //                 // You can perform further actions here if needed
+    //             };
 
-                // Append the script element to the document body to trigger loading and execution
-                body.appendChild(script);
-            }
-        });
-    }
+    //             // Append the script element to the document body to trigger loading and execution
+    //             body.appendChild(script);
+    //         }
+    //     });
+    // } else {
+    //     console.log('URL does not match pattern');
+
+    // }
+
+    fetchModalContent().then((modalHTML) => {
+        if (modalHTML) {
+            const body = document.querySelector('body');
+            body.insertAdjacentHTML('beforeend', modalHTML);
+
+            // Get the absolute URL of the JS file in your extension
+            const jsUrl = chrome.runtime.getURL('modal/modalScript.js');
+
+            // Create a script element
+            const script = document.createElement('script');
+            script.src = jsUrl;
+
+            // Add an event listener to check when the script has loaded
+            script.onload = () => {
+                console.log('Script has been loaded!');
+                // You can perform further actions here if needed
+            };
+
+            // Append the script element to the document body to trigger loading and execution
+            body.appendChild(script);
+        }
+    });
 };
